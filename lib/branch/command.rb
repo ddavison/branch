@@ -12,11 +12,10 @@ OptionParser.new do |opts|
     exit
   end
 
-  opts.on_tail('-h', '--help', 'Show the usage') do
+  opts.on('-h', '--help', 'Show the usage') do
     puts opts
     exit
   end
-
 
   if ARGV.size <= 0
     puts opts
