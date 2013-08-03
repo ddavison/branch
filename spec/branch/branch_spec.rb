@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module Branch
   describe Branch do
-    let(:args) {[]}
+    let(:args) {['src']}
     subject {Runner.new(args)}
 
     before(:each) do
@@ -14,7 +14,6 @@ module Branch
 
 
     context '::new' do
-
       it 'should parse the file from the arguments' do
         subject.file.should eq File.expand_path('src')
       end
@@ -25,6 +24,13 @@ module Branch
     context 'branch' do
       it 'should copy to 1 directory'
       it 'should copy to multiple directories'
+    end
+
+    after(:all) do
+      # delete the src file, and the 2 dest folders.
+      File.delete('src')
+      Dir.delete('dest1')
+      Dir.delete('dest2')
     end
   end
 end

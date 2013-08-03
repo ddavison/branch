@@ -19,7 +19,7 @@ module Branch
 
 
     def initialize(args=[])
-        
+      @file = File.expand_path(args.first)
     end
   end
 end
